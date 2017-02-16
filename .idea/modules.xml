@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/godeye.iml" filepath="$PROJECT_DIR$/godeye.iml" />
       <module fileurl="file://$PROJECT_DIR$/godeye-client/godeye-client.iml" filepath="$PROJECT_DIR$/godeye-client/godeye-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/godeye-common/godeye-common.iml" filepath="$PROJECT_DIR$/godeye-common/godeye-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/godeye-web/godeye-web.iml" filepath="$PROJECT_DIR$/godeye-web/godeye-web.iml" />
     </modules>
   </component>
