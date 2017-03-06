@@ -12,13 +12,13 @@ import com.alibaba.dubbo.rpc.RpcException;
 import com.alibaba.dubbo.rpc.RpcInvocation;
 
 
+import com.ziroom.godeye.entity.trace.Endpoint;
 import com.ziroom.godeye.entity.trace.Span;
 import com.ziroom.godeye.utils.IpUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Activate(group = {Constants.PROVIDER, Constants.CONSUMER})
-@SuppressWarnings("PMD.CyclomaticComplexity")
 public class DubboFilter implements Filter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DubboFilter.class);
@@ -26,7 +26,6 @@ public class DubboFilter implements Filter {
     private static Tracer tracer;
 
     // 调用过程拦截
-    @SuppressWarnings({"PMD.OnlyOneReturn", "PMD.OnlyOneReturn"})
     public Result invoke(final Invoker<?> invoker, final Invocation invocation) throws RpcException {
         if (tracer == null) {
             return invoker.invoke(invocation);
@@ -35,10 +34,6 @@ public class DubboFilter implements Filter {
         final RpcContext context = RpcContext.getContext();
 
         // 传入参数，暂不做处理
-        // Object[] arguments = context.getArguments();
-        // for (Object argument : arguments) {
-        // LOGGER.error("arg:" + argument);
-        // }
 
         final String localIp = IpUtils.getRealIpWithStaticCache();
         final int localPort = context.getLocalPort();

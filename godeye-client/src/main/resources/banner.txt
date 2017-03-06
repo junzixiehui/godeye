@@ -1,0 +1,25 @@
+
+                                                 dddddddd
+                                                 d::::::d
+                                                 d::::::d
+                                                 d::::::d
+                                                 d:::::d
+   ggggggggg   ggggg   ooooooooooo       ddddddddd:::::d     eeeeeeeeeeee  yyyyyyy           yyyyyyy eeeeeeeeeeee
+  g:::::::::ggg::::g oo:::::::::::oo   dd::::::::::::::d   ee::::::::::::ee y:::::y         y:::::yee::::::::::::ee
+ g:::::::::::::::::go:::::::::::::::o d::::::::::::::::d  e::::::eeeee:::::eey:::::y       y:::::ye::::::eeeee:::::ee
+g::::::ggggg::::::ggo:::::ooooo:::::od:::::::ddddd:::::d e::::::e     e:::::e y:::::y     y:::::ye::::::e     e:::::e
+g:::::g     g:::::g o::::o     o::::od::::::d    d:::::d e:::::::eeeee::::::e  y:::::y   y:::::y e:::::::eeeee::::::e
+g:::::g     g:::::g o::::o     o::::od:::::d     d:::::d e:::::::::::::::::e    y:::::y y:::::y  e:::::::::::::::::e
+g:::::g     g:::::g o::::o     o::::od:::::d     d:::::d e::::::eeeeeeeeeee      y:::::y:::::y   e::::::eeeeeeeeeee
+g::::::g    g:::::g o::::o     o::::od:::::d     d:::::d e:::::::e                y:::::::::y    e:::::::e
+g:::::::ggggg:::::g o:::::ooooo:::::od::::::ddddd::::::dde::::::::e                y:::::::y     e::::::::e
+ g::::::::::::::::g o:::::::::::::::o d:::::::::::::::::d e::::::::eeeeeeee         y:::::y       e::::::::eeeeeeee
+  gg::::::::::::::g  oo:::::::::::oo   d:::::::::ddd::::d  ee:::::::::::::e        y:::::y         ee:::::::::::::e
+    gggggggg::::::g    ooooooooooo      ddddddddd   ddddd    eeeeeeeeeeeeee       y:::::y            eeeeeeeeeeeeee
+            g:::::g                                                              y:::::y
+gggggg      g:::::g                                                             y:::::y
+g:::::gg   gg:::::g                                                            y:::::y
+ g::::::ggg:::::::g                                                           y:::::y
+  gg:::::::::::::g                                                           yyyyyyy
+    ggg::::::ggg
+       gggggg
