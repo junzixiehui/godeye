@@ -25,7 +25,7 @@
         <javax.el-api.version>2.2.4</javax.el-api.version>
         <lombok.version>1.16.10</lombok.version>
         <p6spy.version>2.1.4</p6spy.version>
-
+        <guava.version>19.0</guava.version>
         <mysql.connector.version>5.1.38</mysql.connector.version>
         <mybatis.version>3.2.7</mybatis.version>
         <hibernate.validator.version>5.2.4.Final</hibernate.validator.version>
@@ -70,6 +70,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.ziroom</groupId>

@@ -1,12 +1,15 @@
 package com.ziroom.godeye.entity.trace;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.google.common.collect.Lists;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Description:
@@ -35,6 +38,30 @@ public class Span implements Serializable {
 
     private boolean sample;
 
+
+    private List<Annotation> annotations = Lists.newArrayList();
+    private List<BinaryAnnotation> binaryAnnotations = Lists.newArrayList();
+
+    public boolean isRootSpan() {
+        return (parentId == null);
+    }
+
+    public void addAnnotation(Annotation annotation) {
+        annotations.add(annotation);
+    }
+
+    public void addBinaryAnnotation(BinaryAnnotation annotation) {
+        binaryAnnotations.add(annotation);
+    }
+
+    public boolean addException(String className, String methodName, Throwable ex, Endpoint endpoint) {
+        this.hasException = true;
+        BinaryAnnotation exAnnotation = new BinaryAnnotation();
+        exAnnotation.setThrowable(className, methodName, ex);
+        exAnnotation.setEndpoint(endpoint);
+        addBinaryAnnotation(exAnnotation);
+        return true;
+    }
 
 
     @Override

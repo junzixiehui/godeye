@@ -12,6 +12,7 @@ import com.alibaba.dubbo.rpc.RpcException;
 import com.alibaba.dubbo.rpc.RpcInvocation;
 
 
+import com.ziroom.godeye.constant.TracerConstant;
 import com.ziroom.godeye.entity.trace.Endpoint;
 import com.ziroom.godeye.entity.trace.Span;
 import com.ziroom.godeye.utils.IpUtils;
@@ -56,9 +57,9 @@ public class DubboFilter implements Filter {
                     span = tracer.newSpan(appName, serviceName, methodName, parentSpan);
                 }
             } else if (context.isProviderSide()) {
-                final String traceId = invocation.getAttachment(TracerUtils.TRACE_ID);
-                final String parentId = invocation.getAttachment(TracerUtils.PARENT_SPAN_ID);
-                final String spanId = invocation.getAttachment(TracerUtils.SPAN_ID);
+                final String traceId = invocation.getAttachment(TracerConstant.TRACE_ID);
+                final String parentId = invocation.getAttachment(TracerConstant.PARENT_SPAN_ID);
+                final String spanId = invocation.getAttachment(TracerConstant.SPAN_ID);
                 final boolean sample = traceId != null;
                 span = tracer.genSpan(appName, serviceName, methodName, traceId, parentId, spanId, sample);
             } else {
@@ -73,9 +74,6 @@ public class DubboFilter implements Filter {
                 span.addException(serviceName, methodName, throwable, endpoint);
             }
 
-            // 返回值
-            // Object resultValue = result.getValue();
-            // LOGGER.error("return:" + JSON.toJSONString(resultValue));
             return result;
         } catch (final RpcException ex) {
             if (span != null) {
@@ -105,9 +103,9 @@ public class DubboFilter implements Filter {
                 tracer.clientSendRecord(span, endpoint, start);
 
                 final RpcInvocation rpcInvocation = (RpcInvocation) invocation;
-                rpcInvocation.setAttachment(TracerUtils.PARENT_SPAN_ID, span.getParentId());
-                rpcInvocation.setAttachment(TracerUtils.SPAN_ID, span.getId());
-                rpcInvocation.setAttachment(TracerUtils.TRACE_ID, span.getTraceId());
+                rpcInvocation.setAttachment(TracerConstant.PARENT_SPAN_ID, span.getParentId());
+                rpcInvocation.setAttachment(TracerConstant.SPAN_ID, span.getId());
+                rpcInvocation.setAttachment(TracerConstant.TRACE_ID, span.getTraceId());
             }
         } else if (context.isProviderSide()) {
             tracer.serverReceiveRecord(span, endpoint, start);
