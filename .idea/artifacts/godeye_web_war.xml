@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="godeye-web:war">
-    <output-path>$PROJECT_DIR$/godeye-web/target</output-path>
-    <root id="archive" name="godeye-web.war">
-      <element id="artifact" artifact-name="godeye-web:war exploded" />
-    </root>
-  </artifact>
-</component>
