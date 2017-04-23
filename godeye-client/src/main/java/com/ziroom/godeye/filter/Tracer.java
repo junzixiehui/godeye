@@ -7,6 +7,7 @@ import com.ziroom.godeye.entity.trace.BinaryAnnotation;
 import com.ziroom.godeye.entity.trace.Endpoint;
 import com.ziroom.godeye.entity.trace.Span;
 import com.ziroom.godeye.enums.AnnotationType;
+import com.ziroom.godeye.sample.CustomSampler;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Map;
@@ -19,7 +20,7 @@ public final class Tracer {
 
     private final Sampler sampler = new CustomSampler();
 
-    private Transfer transfer;
+   // private Transfer transfer;
 
     // 传递parentSpan
     private final ThreadLocal<Span> spanThreadLocal = new ThreadLocal<Span>();
@@ -127,7 +128,7 @@ public final class Tracer {
         span.addAnnotation(annotation);
     }
 
-    // 构件cr annotation
+ /*   // 构件cr annotation
     void clientReceiveRecord(final Span span, final Endpoint endpoint, final long end) {
         if (span.isSample() && transfer != null) {
             final Annotation annotation = new Annotation();
@@ -137,7 +138,7 @@ public final class Tracer {
             span.addAnnotation(annotation);
             transfer.asyncSend(span);
         }
-    }
+    }*/
 
     // 构件sr annotation
     void serverReceiveRecord(final Span span, final Endpoint endpoint, final long start) {
@@ -153,7 +154,7 @@ public final class Tracer {
     }
 
     // 构件 ss annotation
-    void serverSendRecord(final Span span, final Endpoint endpoint, final long end) {
+  /*  void serverSendRecord(final Span span, final Endpoint endpoint, final long end) {
         if (span.isSample() && transfer != null) {
             final Annotation annotation = new Annotation();
             annotation.setTimestamp(end);
@@ -164,19 +165,21 @@ public final class Tracer {
         }
 
         this.removeParentSpan();
-    }
+    }*/
 
     String genTracerId() {
         return UUID.randomUUID().toString().replace("-", "");
     }
 
+/*
     public void setTransfer(final Transfer transfer) {
         this.transfer = transfer;
     }
+*/
 
     // =======================以下为提供给对外开放的方法=================================
 
-    public void addBinaryAnnotation(final String className, final String methodName, final int duration) {
+   /* public void addBinaryAnnotation(final String className, final String methodName, final int duration) {
         final Span span = spanThreadLocal.get();
         if (span != null && StringUtils.isNotBlank(className) && StringUtils.isNotBlank(methodName) && duration >= 0) {
             final BinaryAnnotation binaryAnnotation = new BinaryAnnotation();
@@ -243,7 +246,7 @@ public final class Tracer {
                 ctxThreadLocal.set(span);
             }
         }
-    }
+    }*/
 
     Span getAndRemoveTraceCtx() {
         final Span retSpan = ctxThreadLocal.get();

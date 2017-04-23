@@ -90,9 +90,9 @@ public class DubboFilter implements Filter {
 
     private void invokerAfter(final Endpoint endpoint, final Span span, final long end, final boolean isConsumerSide) {
         if (isConsumerSide) {
-            tracer.clientReceiveRecord(span, endpoint, end);
+            //tracer.clientReceiveRecord(span, endpoint, end);
         } else {
-            tracer.serverSendRecord(span, endpoint, end);
+            //tracer.serverSendRecord(span, endpoint, end);
         }
     }
 
