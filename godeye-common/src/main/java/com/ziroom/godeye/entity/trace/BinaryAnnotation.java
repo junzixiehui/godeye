@@ -1,13 +1,15 @@
 package com.ziroom.godeye.entity.trace;
 
 import com.ziroom.godeye.enums.BinaryAnnotationType;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.io.Serializable;
 
-@Data
+
+
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class BinaryAnnotation implements Serializable {
@@ -21,19 +23,18 @@ public class BinaryAnnotation implements Serializable {
   private int port;
   private int duration = 0;
 
-  public void setThrowable(String className, String methodName, Throwable ex) {
-    if (ex != null) {
-      ex.printStackTrace();
+  public void setThrowable(String className, String methodName, Throwable e) {
+    if (e != null) {
+      e.printStackTrace();
       setKey(className);
-      setValue(methodName + "," + ex.toString());
+      setValue(methodName + "," + e.toString());
       setType(BinaryAnnotationType.EXCEPTION);
     }
   }
 
   @Override
   public String toString() {
-    return "BinaryAnnotation{" + "key='" + key + '\'' + ", value=" + value + ", type='" + type + '\'' + ", timestamp="
-        + timestamp + ", ip=" + ip + ", port=" + port + '}';
+    return ToStringBuilder.reflectionToString(this);
   }
 
   public void setEndpoint(Endpoint endpoint) {

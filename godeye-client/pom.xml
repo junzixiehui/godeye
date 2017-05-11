@@ -12,8 +12,6 @@
     <artifactId>godeye-client</artifactId>
 
 
-
-
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -81,7 +79,6 @@
             <artifactId>junit</artifactId>
         </dependency>
     </dependencies>
-
 
 
     <profiles>

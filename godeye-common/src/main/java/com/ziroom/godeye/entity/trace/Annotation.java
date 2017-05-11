@@ -1,8 +1,10 @@
 package com.ziroom.godeye.entity.trace;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import com.ziroom.godeye.enums.AnnotationType;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -77,5 +79,4 @@ public class Annotation implements Serializable {
   public String toString() {
     return ToStringBuilder.reflectionToString(this, ToStringStyle.SHORT_PREFIX_STYLE);
   }
-
 }

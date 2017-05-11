@@ -1,6 +1,5 @@
 package com.ziroom.godeye.utils;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,9 +12,7 @@ public class IpUtils {
 
   private static final Logger LOG = LoggerFactory.getLogger(IpUtils.class);
 
-  /**
-   * 静态变量缓存IP.
-   */
+  /** 静态变量缓存IP. */
   private static String cachedIp = null;
 
   /*
@@ -34,7 +31,7 @@ public class IpUtils {
 
   /**
    * 取得本机的IP，并把结果放到static变量中.
-   * 
+   *
    * @return 如果有多个IP地址返回外网的IP，多个外网IP返回第一个IP（在多网管等特殊情况下）
    * @throws SocketException
    */
@@ -54,9 +51,7 @@ public class IpUtils {
     }
   }
 
-  /**
-   * 刷新getRealIpWithStaticCache()方法的static变量.
-   */
+  /** 刷新getRealIpWithStaticCache()方法的static变量. */
   public static void flushIpStaticCache() {
     synchronized (syncObject) {
       cachedIp = null;
@@ -65,7 +60,7 @@ public class IpUtils {
 
   /**
    * 取得本机的IP.
-   * 
+   *
    * @return 如果有多个IP地址返回外网的IP，多个外网IP返回第一个IP（在多网管等特殊情况下）
    * @throws SocketException
    */
@@ -81,12 +76,14 @@ public class IpUtils {
       Enumeration<InetAddress> address = ni.getInetAddresses();
       while (address.hasMoreElements()) {
         ip = address.nextElement();
-        if (!ip.isSiteLocalAddress() && !ip.isLoopbackAddress() 
+        if (!ip.isSiteLocalAddress()
+            && !ip.isLoopbackAddress()
             && ip.getHostAddress().indexOf(":") == -1) { // 外网IP
           netIp = ip.getHostAddress();
           isFind = true;
           break;
-        } else if (ip.isSiteLocalAddress() && !ip.isLoopbackAddress() 
+        } else if (ip.isSiteLocalAddress()
+            && !ip.isLoopbackAddress()
             && ip.getHostAddress().indexOf(":") == -1) { // 内网IP
           localIp = ip.getHostAddress();
         }

@@ -7,7 +7,7 @@ import java.util.Random;
 
 /**
  * 用户自定义采样率实现。 用户在配置文件中指定采样率.
- * 
+ *
  * @author Zecheng
  */
 @Component
