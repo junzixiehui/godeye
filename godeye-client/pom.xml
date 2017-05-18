@@ -12,8 +12,6 @@
     <artifactId>godeye-client</artifactId>
 
 
-
-
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -75,8 +73,12 @@
             <artifactId>spring-boot</artifactId>
             <scope>provided</scope>
         </dependency>
-    </dependencies>
 
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+    </dependencies>
 
 
     <profiles>

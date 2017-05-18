@@ -12,7 +12,6 @@
     <artifactId>godeye-common</artifactId>
 
 
-
     <dependencies>
         <dependency>
             <groupId>com.google.guava</groupId>
