@@ -20,6 +20,7 @@ public class TransferEngine {
   private int batchSize = 32;
   private int bufferSize = 2 ^ 10;
   private int tpsLimit = 2048;
+  private final String storageType = "mysql";
 
   public TransferEngine(final String url) {
     this.url = url;
